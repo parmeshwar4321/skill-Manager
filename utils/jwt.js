@@ -1,10 +1,12 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+
 function generateAccessToken(username) {
   return jwt.sign({ _id: username._id }, process.env.secret_key, {
-    expiresIn: "18000s",
+    expiresIn: "18000s", //expires IN 5hours
   });
 }
+
 function authenticateToken(req, res, next) {
   const authHeader = req.headers.authorization;
   if (authHeader === undefined) {

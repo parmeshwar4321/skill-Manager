@@ -1,10 +1,9 @@
-const usersDataAccess = require("./user.dal");
+const usersDataAccess = require("./employee.dal");
 const bcrypt = require("bcrypt");
 const momen = require("moment-timezone");
 require("dotenv").config();
 const ExpressError = require("../utils/errorGenerator");
 const { generateAccessToken } = require("../utils/jwt");
-const { myFunction } = require("../utils/nodemailer");
 
 exports.getUser = async (req) => {
   const _id = req.token_data._id;
@@ -39,7 +38,6 @@ exports.createUser = async (req) => {
     subject: "Sending email using node.js",
     text: `http://localhost:3001/Resetpassword/${storedUser._id}`,
   };
-  myFunction(otpSend);
   return {
     error: false,
     sucess: true,

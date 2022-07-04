@@ -1,4 +1,4 @@
-const User = require("./user.model");
+const User = require("./employee.model");
 require("../utils/jwt");
 
 const findUser = async (data) => {
