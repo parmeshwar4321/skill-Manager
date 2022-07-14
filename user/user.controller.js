@@ -1,4 +1,4 @@
-const usersDataAccess = require("./employee.dal");
+const usersDataAccess = require("./user.dal");
 const bcrypt = require("bcrypt");
 const momen = require("moment-timezone");
 require("dotenv").config();
@@ -12,6 +12,15 @@ exports.getUser = async (req) => {
     error: false,
     sucess: true,
     message: "Get user",
+    data: users,
+  };
+};
+exports.getallUser = async (req) => {
+  const users = await usersDataAccess.findAllUser();
+  return {
+    error: false,
+    sucess: true,
+    message: "Get users",
     data: users,
   };
 };
@@ -252,7 +261,7 @@ exports.reminderTime = async (req, res) => {
   };
 };
 
-const loginU = async (email) => {
+const login = async (email) => {
   const data = await usersDataAccess.findUserByUsername({
     email,
   });

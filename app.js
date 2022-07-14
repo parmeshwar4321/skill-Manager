@@ -8,8 +8,8 @@ const express = require("express");
 const PORT = process.env.PORT || 3000;
 
 //routes
-const userRouters = require("./employee/employee.router");
-const leadsRouters = require("./leads/leads.router");
+const userRouters = require("./user/user.router");
+const leadsRouters = require("./skills/skills.router");
 const middleware = require("./utils/middleware");
 
 const app = express();
@@ -22,7 +22,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/users", userRouters);
-app.use("/leads", leadsRouters);
+app.use("/skills", leadsRouters);
 
 //errroHandelers
 app.use(middleware.unknownEndpoint);

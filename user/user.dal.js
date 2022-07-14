@@ -1,11 +1,16 @@
-const User = require("./employee.model");
+const User = require("./user.model");
 require("../utils/jwt");
 
 const findUser = async (data) => {
   const user = await User.findById(data);
+  // .populate("skills");
   return user;
 };
 
+const findAllUser = async (data) => {
+  const user = await User.find();
+  return user;
+};
 const storeUser = async (userToStore) => {
   const storedUser = await User.create(userToStore);
   return storedUser;
@@ -37,6 +42,7 @@ const deleteAll = async () => {
 
 module.exports = {
   findUser,
+  findAllUser,
   storeUser,
   findUserByUsername,
   updateUser,

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const schema = mongoose.Schema;
 const EmployeeSchema = new mongoose.Schema(
   {
     first_name: {
@@ -26,9 +27,15 @@ const EmployeeSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    skills: [
+      {
+        type: schema.Types.ObjectId,
+        ref: "skills",
+      },
+    ],
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("employee", EmployeeSchema);
+const User = mongoose.model("user", EmployeeSchema);
 module.exports = User;

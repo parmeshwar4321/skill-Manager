@@ -14,8 +14,9 @@ function authenticateToken(req, res, next) {
   }
   const token = authHeader.split(" ")[1];
   jwt.verify(token, process.env.secret_key, (err, data) => {
-    if (err)
+    if (err) {
       return res.status(401).json({ error: true, message: "Unauthorized" });
+    }
     req.token_data = data;
     next();
   });
