@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: #3AB795;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+
+th {
+
+  color: #757575
+}
+
+td {
+  padding: 15px;
+  color: #192A3E
+}

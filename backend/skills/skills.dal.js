@@ -2,6 +2,10 @@ const skills = require("./skills.model");
 const user = require("../user/user.model");
 require("../utils/jwt");
 
+const getSkill = async () => {
+  const getAllSkills = await skills.find();
+  return getAllSkills;
+};
 const addSkill = async (skillsToStore) => {
   console.log(skillsToStore);
   const storedskill = await skills.create(skillsToStore);
@@ -36,6 +40,7 @@ const deleteSkill = async (skillId) => {
 };
 
 module.exports = {
+  getSkill,
   addSkill,
   addSkillToUser,
   updateSkill,

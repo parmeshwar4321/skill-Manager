@@ -2,6 +2,10 @@ const skillsDataAccess = require("./skills.dal");
 const ExpressError = require("../utils/errorGenerator");
 require("../utils/jwt");
 
+exports.getSkills = async () => {
+  const getAllSkills = await skillsDataAccess.getSkill();
+  return getAllSkills;
+};
 exports.addSkill = async (req) => {
   const userId = req.token_data._id;
 

@@ -3,8 +3,8 @@ const { authenticateToken } = require("../utils/jwt");
 const router = express.Router();
 const skillsController = require("./skills.controller");
 
-router.get("/getAllSkills", authenticateToken, async (request, response) => {
-  const result = await skillsController.getAllLeads(request);
+router.get("/getAllSkills", async (request, response) => {
+  const result = await skillsController.getSkills(request);
   return response.json(result);
 });
 
